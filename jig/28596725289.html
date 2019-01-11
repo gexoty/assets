@@ -1,0 +1,22 @@
+<head>
+	<title>Discord card generator</title>
+</head>
+
+<script>
+function setCard()
+{
+	var v = "https://dccg.herokuapp.com/dsc?invite=" + document.getElementById("invite").value + "&params=_" + (document.getElementById("centered").checked ? "center_" : "") + (document.getElementById("ctj").checked ? "click" : "") + "&ln1=" + document.getElementById("ln1").value + "&ln2=" + document.getElementById("ln2").value;
+	if(document.getElementById("invite").value == "xGAGXDG") v = "https://dccg.herokuapp.com/zmc";
+	console.log(v);
+	document.getElementById("card").src = v;
+	document.getElementById("card").hidden = false;
+}
+</script>
+
+<body>
+	Invite code: <input id = "invite"/> <br> <br>
+	Line 1: <input id = "ln1"/> <br> <br>
+	Line 2: <input id = "ln2"/> <br>
+	Centered <input type="checkbox" id="centered" checked/> | "Click to join" <input type="checkbox" id="ctj" checked/>
+	<br> <button onclick = "setCard()">Generate</button>
+	<br><br><br><img id = "card" width = "768" height = "256" hidden/>
